@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.han.springdemo.mapper.oracle.StudentMapper">
+
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.han.springdemo.pojo.Student">
+        <id column="ID" property="id"/>
+        <result column="STU_NAME" property="stuName"/>
+        <result column="GRADE_ID" property="gradeId"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, STU_NAME, GRADE_ID
+    </sql>
+
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT * FROM SCOTT_STUDENT WHERE ID = #{id}
+    </select>
+</mapper>
